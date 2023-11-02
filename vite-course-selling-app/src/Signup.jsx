@@ -3,12 +3,15 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 const Signup = () => {
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
     console.log(username);
     console.log(password);
+
+   
   return (
     <div>
         
@@ -30,7 +33,22 @@ const Signup = () => {
             <br />
             <br />
             <div style={{display : 'flex', justifyContent : 'center'}}>
-            <Button size='large' variant="contained" >Signup</Button>
+            <Button size='large' onClick={()=>{
+                fetch('http://localhost:3000/users/signup',{
+                    method : 'POST',
+                    body : JSON.stringify({
+                        username : username,
+                        password : password
+                    }),
+                    headers : {
+                        "Content-type" : "application/json"
+                    }
+                }).then((res)=>{
+                    res.json().then((data)=>{
+                        console.log(data)
+                    })
+                })
+            }} variant="contained" >Signup</Button>
             </div>
            
       

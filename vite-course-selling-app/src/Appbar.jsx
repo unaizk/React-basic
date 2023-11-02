@@ -12,12 +12,12 @@ const Appbar = () => {
         </div>
         <div style={{display : 'flex'}}>
             <div style={{marginRight : '10px', marginTop : '10px'}}>
-                <Button variant='contained'>
+                <Button variant='contained' onClick={()=>{window.location = '/signin'}}>
                     Sign in
                 </Button>
             </div>
             <div  style={{marginRight : '10px', marginTop : '10px'}}>
-                <Button variant='contained'>
+                <Button variant='contained' onClick={()=>{window.location = '/signup'}}>
                     Sign up
                 </Button>
             </div>
