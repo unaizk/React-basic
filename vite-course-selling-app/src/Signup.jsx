@@ -34,7 +34,7 @@ const Signup = () => {
             <br />
             <div style={{display : 'flex', justifyContent : 'center'}}>
             <Button size='large' onClick={()=>{
-                fetch('http://localhost:3000/users/signup',{
+                fetch('http://localhost:3000/admin/signup',{
                     method : 'POST',
                     body : JSON.stringify({
                         username : username,
@@ -45,7 +45,7 @@ const Signup = () => {
                     }
                 }).then((res)=>{
                     res.json().then((data)=>{
-                        console.log(data)
+                        localStorage.setItem("token",data.token)
                     })
                 })
             }} variant="contained" >Signup</Button>
