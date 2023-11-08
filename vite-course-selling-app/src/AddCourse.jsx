@@ -40,7 +40,7 @@ const AddCourse = () => {
                     }
                 }).then((res)=>{
                     res.json().then((data)=>{
-                        console.log(data)
+                       alert('Course added')
                     })
                 })
             }} variant="contained" >Add Course</Button>
