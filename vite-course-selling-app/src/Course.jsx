@@ -21,9 +21,9 @@ const Course = () => {
         })
     },[])
   return (
-    <div>
+    <div style={{display : 'flex' , flexWrap:'wrap', justifyContent : 'center'}}>
         {course.map((cor)=>{
-        return <Card style={{
+        return <Card key={cor.id} style={{
                 width : '300px',
                 margin : '10px',
                 minHeight : '200px'
@@ -33,7 +33,8 @@ const Course = () => {
             </Typography>
             <Typography textAlign={'center'} variant='subtitle1'>
                         {cor.description}
-            </Typography>    
+            </Typography> 
+            <img src={cor.imageLink} alt="" style={{width : '300px'}} /> 
         </Card>
         })}
     </div>

@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 const AddCourse = () => {
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
+    const [image, setImage] = useState('')
   return (
     <div>
          <div style={{paddingTop : '150px', marginBottom : '10px', display : 'flex', justifyContent : 'center'}}>
@@ -25,6 +26,9 @@ const AddCourse = () => {
             <TextField value={description} onChange={(e)=>{setDescription(e.target.value)}} fullWidth={true} id="outlined-basics" label="Description" type='text' variant="outlined" />
             <br />
             <br />
+            <TextField value={image} onChange={(e)=>{setImage(e.target.value)}} fullWidth={true} id="outlined-basic" label="Image link" type='text' variant="outlined" /> 
+            <br />
+            <br />
             <div style={{display : 'flex', justifyContent : 'center'}}> 
             <Button size='large' onClick={()=>{
                 fetch('http://localhost:3000/admin/courses',{
@@ -32,6 +36,8 @@ const AddCourse = () => {
                     body : JSON.stringify({
                         title : title,
                         description : description,
+                        imageLink : image,
+                        published : true
                        
                     }),
                     headers : {
